@@ -1,0 +1,116 @@
+<ion-content>
+    <ion-grid>
+        <ion-row class="ion-justify-content-center">
+            <ion-col
+                size-sm="8"
+                size-md="4"
+                size-lg="3"
+                size-xl="3"
+            >
+                <h1 class="ion-text-center">
+                    <img src="./assets/imgs/logo.png">
+                    <span class="span-logo">Alimentare</span>
+                </h1>
+
+                <form
+                    [formGroup]=authForm
+                    (submit)="onSubmit(authProviders.Email)"
+                    class="example-form"
+                >
+                <ng-container *ngIf="!configs.isSignIn">
+                    <mat-form-field
+                        class="full-width"
+                        appearance="outline"
+                    >
+                        <mat-label>Nome</mat-label>
+                        <mat-icon matSuffix>person</mat-icon>
+                        <input
+                            formControlName="name"
+                            matInput
+                            placeholder="Usuário"
+                        >
+                        <mat-error *ngIf="nameControl.hasError('minlength') && !nameControl.hasError('required')">*Mínimo 5 caractéres.</mat-error>
+                        <mat-error *ngIf="nameControl.hasError('required')">
+                            *Campo
+                            <strong>obrigatório.</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </ng-container>
+                    <mat-form-field
+                        class="full-width"
+                        appearance="outline"
+                    >
+                        <mat-label>Login</mat-label>
+                        <mat-icon matSuffix>mail</mat-icon>
+                        <input
+                            formControlName="email"
+                            matInput
+                            placeholder="Usuário"
+                        >
+                        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">*Por favor digite um e-mail válido.</mat-error>
+                        <mat-error *ngIf="email.hasError('required')">
+                            *E-mail é
+                            <strong>obrigatório.</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field
+                        appearance="outline"
+                        class="full-width"
+                    >
+                        <mat-label>Senha</mat-label>
+                        <mat-icon matSuffix>lock</mat-icon>
+                        <input
+                            formControlName="password"
+                            matInput
+                            type="password"
+                        >
+                        <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">*Mínimo 6 caractéres.</mat-error>
+                        <mat-error *ngIf="password.hasError('required')">
+                            *Senha
+                            <strong>obrigatória.</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <button
+                        type="submit"
+                        class="full-width"
+                        mat-raised-button
+                        color="primary"
+                        [disabled]="authForm.invalid"
+                    >
+                    {{ configs.action }}
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="full-width"
+                        mat-stroked-button
+                        color="primary"
+                        (click)="changeAuthAction()"
+                    >
+                    {{ configs.actionChange }}
+                    </button>
+                    <button
+                        type="submit"
+                        mat-raised-button
+                        class="button-facebook"
+                        (click)="onSubmit(authProviders.Facebook)"
+                    >
+                        <ion-icon name="logo-facebook"></ion-icon>
+                        Login com Facebook
+                    </button>
+                    <button
+                        type="submit"
+                        mat-raised-button
+                        class="button-google"
+                        (click)="onSubmit(authProviders.Google)"
+                    >
+                        <ion-icon name="logo-google"></ion-icon>
+                        Login com Google
+                    </button>
+                </form>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

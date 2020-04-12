@@ -1,0 +1,25 @@
+ion-label{
+    width: 20ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word !important;
+    white-space: initial !important;
+}
+
+ion-icon{
+    color: #ffffff;
+}
+
+ion-title {
+    text-transform: initial !important;
+}
+
+.card {
+    max-width: 92%;
+    margin-left: 4%;
+    margin-bottom: 3%;
+}
+
+.button-menu {
+    margin-left: 51%;
+}

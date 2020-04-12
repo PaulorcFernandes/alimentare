@@ -1,0 +1,47 @@
+<ion-header>
+    <mat-toolbar color="primary" >
+        <app-menu-toggle
+            menu="main-menu"
+        ></app-menu-toggle>
+        <span class="span-toolbar">Clientes</span>
+        <app-logout-button class="logout-button"
+            menu="main-menu"
+        ></app-logout-button>
+    </mat-toolbar>
+</ion-header>
+
+
+
+<ion-content padding>
+    <ion-list *ngIf="(clients$ | async) as clients">
+        <ng-container *ngIf="clients.length > 0; else noclients">
+            <app-client-item
+                *ngFor="let client of clients"
+                [client]="client"
+                (update)="onUpdate($event)"
+                (delete)="onDelete($event)"
+            ></app-client-item>
+        </ng-container>
+        <ng-template #noclients>
+            <ion-item lines="none">Nenhum cliente cadastrado...</ion-item>
+        </ng-template>
+    </ion-list>
+
+
+
+    <ion-fab
+        
+        vertical="bottom"
+        horizontal="end"
+        slot="fixed"
+    >
+        <ion-fab-button
+        color="tertiary"
+            routerLink="/clients-list/create"
+            routerDirection="forward"
+        >
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <notifier-container></notifier-container>
+</ion-content>

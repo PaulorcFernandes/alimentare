@@ -1,0 +1,227 @@
+<ion-header>
+     <mat-toolbar color="primary">
+        <ion-back-button></ion-back-button>
+        <span class="span-toolbar">{{pageTitle}}</span>
+        <app-logout-button class="logout-button"
+            menu="main-menu"
+        ></app-logout-button>
+    </mat-toolbar>
+</ion-header>
+
+
+
+<ion-content padding>
+    <form class="example-form"
+        [formGroup]=clientForm
+        (submit)="onSubmit()"
+    >
+
+
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Razão Social</mat-label>
+            <mat-icon matSuffix>location_city</mat-icon>
+            <input
+                formControlName="socialName"
+                matInput
+                placeholder="Razão Social"
+            >
+            <mat-error *ngIf="socialName.hasError('required')">
+                *Campo
+                <strong>obrigatório.</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>CNPJ</mat-label>
+            <mat-icon matSuffix>local_atm</mat-icon>
+            <input
+                formControlName="cnpj"
+                matInput
+                placeholder="CNPJ"
+            >
+            <mat-error *ngIf="cnpj.hasError('required')">
+                *Campo
+                <strong>obrigatório.</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Sócio</mat-label>
+            <mat-icon matSuffix>account_box</mat-icon>
+            <input
+                formControlName="partner1"
+                matInput
+                placeholder="Sócio"
+            >
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Sócio</mat-label>
+            <mat-icon matSuffix>account_box</mat-icon>
+            <input
+                formControlName="partner2"
+                matInput
+                placeholder="Sócio"
+            >
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Sócio</mat-label>
+            <mat-icon matSuffix>account_box</mat-icon>
+            <input
+                formControlName="partner3"
+                matInput
+                placeholder="Sócio"
+            >
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Endereço</mat-label>
+            <mat-icon matSuffix>map</mat-icon>
+            <input
+                formControlName="address"
+                matInput
+                placeholder="Endereço"
+            >
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Complemento</mat-label>
+            <mat-icon matSuffix>map</mat-icon>
+            <input
+                formControlName="complement"
+                matInput
+                placeholder="Complemento"
+            >
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Bairro</mat-label>
+            <mat-icon matSuffix>map</mat-icon>
+            <input
+                formControlName="district"
+                matInput
+                placeholder="Bairro"
+            >
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Cidade</mat-label>
+            <mat-icon matSuffix>map</mat-icon>
+            <input
+                formControlName="city"
+                matInput
+                placeholder="Cidade"
+            >
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Estado</mat-label>
+            <mat-icon matSuffix>map</mat-icon>
+            <input
+                formControlName="state"
+                matInput
+                placeholder="Estado"
+            >
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>DAP</mat-label>
+            <mat-icon matSuffix>pages</mat-icon>
+            <input
+                formControlName="dap"
+                matInput
+                placeholder="DAP"
+            >
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Celular:</mat-label>
+            <mat-icon matSuffix>local_phone</mat-icon>
+            <input
+                formControlName="phone"
+                matInput
+                placeholder="Telefone de contato"
+            >
+            <mat-error *ngIf="phone.hasError('required')">
+                *Campo
+                <strong>obrigatório.</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Responsável legal</mat-label>
+            <mat-icon matSuffix>assignment_ind</mat-icon>
+            <input
+                formControlName="nameResponsiblePerson"
+                matInput
+                placeholder="Responsável legal"
+            >
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>CPF do responsável</mat-label>
+            <mat-icon matSuffix>assignment_ind</mat-icon>
+            <input
+                formControlName="cpfResponsible"
+                matInput
+                placeholder="CPF do responsável"
+            >
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Respónsavel técnico</mat-label>
+            <mat-icon matSuffix>assignment_ind</mat-icon>
+            <input
+                formControlName="nameTechnicalManager"
+                matInput
+                placeholder="CPF do responsável"
+            >
+        </mat-form-field>
+        <button
+        type="submit"
+        class="full-width"
+        mat-raised-button
+        color="primary"
+    >
+    Salvar
+    </button>
+
+
+
+    </form>
+
+
+
+</ion-content>
