@@ -51,9 +51,9 @@ export class ClientSavePage implements OnInit {
           enabled}) => {
           this.clientForm.get('socialName').setValue(socialName);
           this.clientForm.get('cnpj').setValue(cnpj);
-          this.clientForm.get('partners').setValue(partner1);
-          this.clientForm.get('partners').setValue(partner2);
-          this.clientForm.get('partners').setValue(partner3);
+          this.clientForm.get('partner1').setValue(partner1);
+          this.clientForm.get('partner2').setValue(partner2);
+          this.clientForm.get('partner3').setValue(partner3);
           this.clientForm.get('address').setValue(address);
           this.clientForm.get('district').setValue(district);
           this.clientForm.get('city').setValue(city);
