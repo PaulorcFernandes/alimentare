@@ -1,32 +1,6 @@
-<!-- <ion-card>
-    <ion-item
-        lines="none"
-        color="primary"
-    >
-        <ion-icon
-            slot="start"
-            name="radio-button-on-outline"
-        ></ion-icon>
-        <ion-label slot="start">{{ client.socialName}}</ion-label>
-        <ion-button
-            slot="end"
-            fill="clear"
-            (click)="menuClient(client)"
-        >
-            <ion-icon name="ellipsis-vertical"></ion-icon>
-        </ion-button>
-    </ion-item>
-    <ion-card-content padding>
-        <ion-item lines="none">
-            <p>{{client.cnpj}}</p>
-        </ion-item>
-    </ion-card-content>
-
-
-</ion-card> -->
-
 <mat-card class="card">
     <mat-card-header>
+        <img mat-card-avatar matSuffix [src]="sanitize(client.logo)"/>
       <mat-card-title>{{client.socialName}}</mat-card-title>
       <mat-card-subtitle>{{client.phone}}</mat-card-subtitle>
       <button class="button-menu" mat-icon-button (click)="menuClient(client)">

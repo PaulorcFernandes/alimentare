@@ -17,7 +17,7 @@
                     (submit)="onSubmit(authProviders.Email)"
                     class="example-form"
                 >
-                <ng-container *ngIf="!configs.isSignIn">
+                <!-- <ng-container *ngIf="!configs.isSignIn">
                     <mat-form-field
                         class="full-width"
                         appearance="outline"
@@ -35,7 +35,7 @@
                             <strong>obrigatório.</strong>
                         </mat-error>
                     </mat-form-field>
-                </ng-container>
+                </ng-container> -->
                     <mat-form-field
                         class="full-width"
                         appearance="outline"
@@ -80,7 +80,7 @@
                     {{ configs.action }}
                     </button>
 
-                    <button
+                    <!-- <button
                         type="submit"
                         class="full-width"
                         mat-stroked-button
@@ -88,7 +88,7 @@
                         (click)="changeAuthAction()"
                     >
                     {{ configs.actionChange }}
-                    </button>
+                    </button> -->
                     <button
                         type="submit"
                         mat-raised-button
@@ -107,10 +107,12 @@
                         <ion-icon name="logo-google"></ion-icon>
                         Login com Google
                     </button>
+                    
                 </form>
             </ion-col>
 
         </ion-row>
     </ion-grid>
+    <notifier-container></notifier-container>
 
 </ion-content>

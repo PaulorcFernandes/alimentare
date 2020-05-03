@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Client } from '../../models/client.model';
 import { ActionSheetController } from '@ionic/angular';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-client-item',
@@ -15,7 +16,7 @@ export class ClientItemComponent {
   @Output() delete = new EventEmitter<Client>();
 
 
-  constructor( public actionSheetController: ActionSheetController) { }
+  constructor( public actionSheetController: ActionSheetController, private sanitizer: DomSanitizer) { }
 
   async menuClient(client) {
     const actionSheet =  await this.actionSheetController.create({
@@ -24,14 +25,12 @@ export class ClientItemComponent {
         text: 'Editar',
         icon: 'create',
         handler: () => {
-          console.log('editar share');
           this.update.emit(client);
         }
       }, {
         text: 'Deletar',
         icon: 'trash',
         handler: () => {
-          console.log('deletar clicked');
           this.delete.emit(client);
         }
       }, {
@@ -39,10 +38,13 @@ export class ClientItemComponent {
         icon: 'close',
         role: 'cancel',
         handler: () => {
-          console.log('Cancel clicked');
         }
       }]
     });
     await actionSheet.present();
+  }
+  sanitize(url: string) {
+    //return url;
+    return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 }

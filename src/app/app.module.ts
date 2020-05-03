@@ -52,9 +52,9 @@ const customNotifierOptions: NotifierOptions = {
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    CoreModule, 
-    AppRoutingModule, 
-    NotifierModule.withConfig(customNotifierOptions), 
+    CoreModule,
+    AppRoutingModule,
+    NotifierModule.withConfig(customNotifierOptions),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }), BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent]
