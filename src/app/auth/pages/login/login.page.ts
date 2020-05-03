@@ -17,10 +17,10 @@ export class LoginPage implements OnInit {
 
   authForm: FormGroup;
   authProviders = AuthProvider;
-  showPassword =false
+  showPassword = false;
 
   configs = {
-    isSignIn:true,
+    isSignIn: true,
     action: 'Login',
     actionChange: 'Criar conta'
   };
@@ -77,13 +77,13 @@ export class LoginPage implements OnInit {
         user: this.authForm.value,
         provider
       });
-      if(this.nameControl.valid){
+      if(this.nameControl.valid) {
         await this.overlayService.alert({
           message: 'Usuário cadastrado com sucesso',
           buttons: [
             {
               text: 'Ok',
-              handler: async ()=> {
+              handler: async () => {
                 await this.navController.navigateForward(this.route.snapshot.queryParamMap.get('redirect') || '/clients-list');
               }
             },
@@ -112,17 +112,5 @@ export class LoginPage implements OnInit {
   public showNotification( type: string, message: string ): void {
     this.notifier.notify( type, message );
   }
-
-  passwordType: string = 'password';
-  passwordIcon: string = 'eye-off';
-  hideShowPassword() {
-    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
-    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
-  }
-
-  public toggleTextPassword() {
-    this.showPassword = !this.showPassword;
-  }
-
 
 }

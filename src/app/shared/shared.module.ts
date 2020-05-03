@@ -32,6 +32,10 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+
+
+
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -105,7 +109,8 @@ const customNotifierOptions: NotifierOptions = {
     MatChipsModule,
     MatIconModule,
     MatBottomSheetModule,
-    MatDialogModule
+    MatDialogModule,
+    MaterialFileInputModule
   ],
   exports: [
     NotifierModule,
@@ -139,7 +144,8 @@ const customNotifierOptions: NotifierOptions = {
     MatChipsModule,
     MatIconModule,
     MatBottomSheetModule,
-    MatDialogModule
+    MatDialogModule,
+    MaterialFileInputModule
   ],
 })
 export class SharedModule { }

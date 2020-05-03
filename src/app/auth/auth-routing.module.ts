@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path: '', loadChildren: './pages/login/login.module#LoginPageModule'}
+
 ];
 
 @NgModule({

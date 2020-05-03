@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ClientsService } from '../../services/clients.service';
 import { NavController } from '@ionic/angular';
 import { OverlayService } from 'src/app/core/services/overlay.service';
 import { take } from 'rxjs/operators';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Client } from '../../models/client.model';
 
 
 
@@ -18,13 +20,19 @@ export class ClientSavePage implements OnInit {
   clientForm: FormGroup;
   pageTitle = '...';
   clientId: string = undefined;
+  filestring: any;
+  fotos: any;
+  srcResult: any;
+  files: any;
+  logo: any;
 
   constructor(
     private fb: FormBuilder,
     private clientsService: ClientsService,
     private navCtrl: NavController,
     private overlayService: OverlayService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -39,7 +47,6 @@ export class ClientSavePage implements OnInit {
       return;
     }
     this.clientId = clientId;
-    console.log(clientId);
     this.pageTitle = 'Editar cliente';
     this.clientsService.get(clientId)
       .pipe(take(1))
@@ -66,6 +73,7 @@ export class ClientSavePage implements OnInit {
           this.clientForm.get('nameTechnicalManager').setValue(nameTechnicalManager);
           this.clientForm.get('logo').setValue(logo);
           this.clientForm.get('enabled').setValue(enabled);
+          this.filestring = logo;
         });
   }
 
@@ -107,6 +115,7 @@ export class ClientSavePage implements OnInit {
     const loading = await this.overlayService.loading({
       message: 'Salvando...'
     });
+    this.clientForm.value.logo = this.filestring;
     try {
       const client = !this.clientId
         ? await this.clientsService.create(this.clientForm.value)
@@ -125,4 +134,23 @@ export class ClientSavePage implements OnInit {
         loading.dismiss();
     }
   }
+
+  getFiles(event) {
+    this.files = event.target.files;
+    const reader = new FileReader();
+    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.readAsBinaryString(this.files[0]);
+    console.log(this.files)
+}
+
+_handleReaderLoaded(readerEvt) {
+    const binaryString = readerEvt.target.result;
+    this.filestring = 'data:image/png' + ';base64,' + btoa(binaryString);  // Converting binary string data.
+    console.log(this.filestring)
+}
+
+sanitize(url: string) {
+  //return url;
+  return this.sanitizer.bypassSecurityTrustUrl(url);
+}
 }

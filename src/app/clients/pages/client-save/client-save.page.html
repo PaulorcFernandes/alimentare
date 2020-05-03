@@ -1,8 +1,9 @@
 <ion-header>
-     <mat-toolbar color="primary">
+    <mat-toolbar color="primary">
         <ion-back-button></ion-back-button>
         <span class="span-toolbar">{{pageTitle}}</span>
-        <app-logout-button class="logout-button"
+        <app-logout-button
+            class="logout-button"
             menu="main-menu"
         ></app-logout-button>
     </mat-toolbar>
@@ -10,11 +11,28 @@
 
 
 
+
 <ion-content padding>
-    <form class="example-form"
+    <form
+        class="example-form"
         [formGroup]=clientForm
         (submit)="onSubmit()"
     >
+
+
+        <img
+            class="img-client"
+            matSuffix
+            [src]="sanitize(filestring)"
+        >
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Logo</mat-label>
+            <ngx-mat-file-input (change)="getFiles($event)" [accept]="'.jpg, .jpeg, .png'" placeholder="Adicione uma nova, ou mude a atual"></ngx-mat-file-input>
+            <mat-icon matSuffix>add_photo_alternate</mat-icon>
+        </mat-form-field>
 
 
         <mat-form-field
@@ -210,17 +228,19 @@
             >
         </mat-form-field>
         <button
-        type="submit"
-        class="full-width"
-        mat-raised-button
-        color="primary"
-    >
-    Salvar
-    </button>
+            type="submit"
+            class="full-width"
+            mat-raised-button
+            color="primary"
+        >
+            Salvar
+        </button>
+
 
 
 
     </form>
+
 
 
 

@@ -142,3 +142,43 @@
 ion-title.title-large {
   --color: white;
 }
+
+
+
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/Roboto/300/Roboto-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/Roboto/400/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: semi-bold;
+  font-weight: 500;
+  src: url('../assets/fonts/Roboto/500/Roboto-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: bold;
+  font-weight: 700;
+  src: url('../assets/fonts/Roboto/700/Roboto-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Nova Round';
+  src: url('../assets/fonts/Nova_Round/NovaRound-Regular.ttf');
+}
+
+* {
+  font-family: 'Nova Round';
+}

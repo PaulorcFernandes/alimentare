@@ -36,12 +36,12 @@ export class AuthService {
     return this.afAuth.auth.signOut();
   }
 
-  private signInWithEmail({email, password}: User): Promise<auth.UserCredential>{
+  private signInWithEmail({email, password}: User): Promise<auth.UserCredential> {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   //login por email e senha
-  private signUpWithEmail({email, password, name}: User): Promise<auth.UserCredential>{
+  private signUpWithEmail({email, password, name}: User): Promise<auth.UserCredential> {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(credentials => credentials.user
