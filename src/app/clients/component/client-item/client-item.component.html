@@ -2,7 +2,7 @@
     <mat-card-header>
         <img mat-card-avatar matSuffix [src]="sanitize(client.logo)"/>
       <mat-card-title>{{client.socialName}}</mat-card-title>
-      <mat-card-subtitle>{{client.phone}}</mat-card-subtitle>
+      <mat-card-subtitle>{{client.phone | mask: '(00)00000-0000'}}</mat-card-subtitle>
       <button class="button-menu" mat-icon-button (click)="menuClient(client)">
         <mat-icon>more_vert</mat-icon>
       </button>

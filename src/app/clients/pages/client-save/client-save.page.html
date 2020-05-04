@@ -20,7 +20,7 @@
     >
 
 
-        <img
+        <img *ngIf="filestring" 
             class="img-client"
             matSuffix
             [src]="sanitize(filestring)"
@@ -61,6 +61,7 @@
                 formControlName="cnpj"
                 matInput
                 placeholder="CNPJ"
+                mask="00.000.000/0000-00"
             >
             <mat-error *ngIf="cnpj.hasError('required')">
                 *Campo
@@ -185,6 +186,7 @@
                 formControlName="phone"
                 matInput
                 placeholder="Telefone de contato"
+                mask="(00)00000-0000"
             >
             <mat-error *ngIf="phone.hasError('required')">
                 *Campo
@@ -213,6 +215,7 @@
                 formControlName="cpfResponsible"
                 matInput
                 placeholder="CPF do responsável"
+                mask="000.000.000-00"
             >
         </mat-form-field>
         <mat-form-field

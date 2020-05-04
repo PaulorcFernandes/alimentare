@@ -33,6 +33,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { NgxMaskModule } from 'ngx-mask';
+
 
 
 
@@ -110,7 +112,8 @@ const customNotifierOptions: NotifierOptions = {
     MatIconModule,
     MatBottomSheetModule,
     MatDialogModule,
-    MaterialFileInputModule
+    MaterialFileInputModule,
+    NgxMaskModule.forRoot(),
   ],
   exports: [
     NotifierModule,
@@ -145,7 +148,8 @@ const customNotifierOptions: NotifierOptions = {
     MatIconModule,
     MatBottomSheetModule,
     MatDialogModule,
-    MaterialFileInputModule
+    MaterialFileInputModule,
+    NgxMaskModule
   ],
 })
 export class SharedModule { }
