@@ -13,14 +13,13 @@
 
 
 <ion-content padding>
-    <form
-        class="example-form"
-        [formGroup]=clientForm
-        (submit)="onSubmit()"
-    >
-
-
-        <img
+    <mat-vertical-stepper [linear]="true" #stepper>
+        <mat-step [stepControl]="dadosForm" [optional]="false">
+            <ng-template matStepLabel>Insira os dados da empresa</ng-template>
+            <form class="example-form"
+            [formGroup]=dadosForm 
+            >
+            <img *ngIf="filestring" 
             class="img-client"
             matSuffix
             [src]="sanitize(filestring)"
@@ -61,6 +60,7 @@
                 formControlName="cnpj"
                 matInput
                 placeholder="CNPJ"
+                mask="00.000.000/0000-00"
             >
             <mat-error *ngIf="cnpj.hasError('required')">
                 *Campo
@@ -104,6 +104,44 @@
             >
         </mat-form-field>
         <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>DAP</mat-label>
+            <mat-icon matSuffix>pages</mat-icon>
+            <input
+                formControlName="dap"
+                matInput
+                placeholder="DAP"
+            >
+        </mat-form-field>
+        <mat-form-field
+            class="full-width"
+            appearance="outline"
+        >
+            <mat-label>Celular:</mat-label>
+            <mat-icon matSuffix>local_phone</mat-icon>
+            <input
+                formControlName="phone"
+                matInput
+                placeholder="Telefone de contato"
+                mask="(00)00000-0000"
+            >
+            <mat-error *ngIf="phone.hasError('required')">
+                *Campo
+                <strong>obrigatório.</strong>
+            </mat-error>
+        </mat-form-field>
+        <div>
+            <button mat-stroked-button matStepperNext>Avançar</button>
+          </div>
+
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="adressForm" [optional]="false">
+            <form [formGroup]="adressForm">
+                <ng-template matStepLabel>Adicione um endereço</ng-template>
+                <mat-form-field
             class="full-width"
             appearance="outline"
         >
@@ -163,35 +201,18 @@
                 placeholder="Estado"
             >
         </mat-form-field>
-        <mat-form-field
-            class="full-width"
-            appearance="outline"
-        >
-            <mat-label>DAP</mat-label>
-            <mat-icon matSuffix>pages</mat-icon>
-            <input
-                formControlName="dap"
-                matInput
-                placeholder="DAP"
-            >
-        </mat-form-field>
-        <mat-form-field
-            class="full-width"
-            appearance="outline"
-        >
-            <mat-label>Celular:</mat-label>
-            <mat-icon matSuffix>local_phone</mat-icon>
-            <input
-                formControlName="phone"
-                matInput
-                placeholder="Telefone de contato"
-            >
-            <mat-error *ngIf="phone.hasError('required')">
-                *Campo
-                <strong>obrigatório.</strong>
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field
+
+                <div>
+                    <button mat-stroked-button matStepperPrevious>Voltar</button>
+                    <button class="button-next" mat-stroked-button matStepperNext>Avançar</button>
+                  </div>
+            </form>
+
+        </mat-step>
+        <mat-step [stepControl]="respForm" [optional]="false">
+            <form [formGroup]="respForm" >
+                <ng-template matStepLabel>Agora os responsaveis</ng-template>
+                <mat-form-field
             class="full-width"
             appearance="outline"
         >
@@ -213,6 +234,7 @@
                 formControlName="cpfResponsible"
                 matInput
                 placeholder="CPF do responsável"
+                mask="000.000.000-00"
             >
         </mat-form-field>
         <mat-form-field
@@ -227,21 +249,21 @@
                 placeholder="CPF do responsável"
             >
         </mat-form-field>
-        <button
-            type="submit"
-            class="full-width"
-            mat-raised-button
-            color="primary"
-        >
-            Salvar
-        </button>
-
-
-
-
-    </form>
-
-
-
-
+        <div>
+            <button mat-stroked-button matStepperPrevious>Voltar</button>
+            <button class="button-next" mat-stroked-button matStepperNext>Avançar</button>
+          </div>
+            </form>
+            
+        </mat-step>
+        
+        <mat-step>
+            <ng-template matStepLabel>Finalizar</ng-template>
+            <p>Preenchido corretamente, agora salve.</p>
+            <div>
+              <button mat-stroked-button matStepperPrevious>Back</button>
+              <button class="button-next" mat-stroked-button (click)="onSubmit()">Salvar</button>
+            </div>
+          </mat-step>
+    </mat-vertical-stepper>
 </ion-content>

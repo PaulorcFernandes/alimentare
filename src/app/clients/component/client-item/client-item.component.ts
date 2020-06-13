@@ -14,6 +14,7 @@ export class ClientItemComponent {
   @Output() done = new EventEmitter<Client>();
   @Output() update = new EventEmitter<Client>();
   @Output() delete = new EventEmitter<Client>();
+  @Output() onDocs = new EventEmitter<Client>();
 
 
   constructor( public actionSheetController: ActionSheetController, private sanitizer: DomSanitizer) { }

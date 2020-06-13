@@ -1,0 +1,247 @@
+<ion-header>
+  <mat-toolbar color="primary" >
+    <ion-back-button></ion-back-button>
+      <span class="span-toolbar">Documentos</span>
+      <app-logout-button class="logout-button"
+          menu="main-menu"
+      ></app-logout-button>
+  </mat-toolbar>
+</ion-header>
+
+<ion-content>
+        <form class="form-content" [formGroup]= "documentsForm" (submit)="onSubmit(documentsForm)">
+            <section class="check-section">
+                <mat-checkbox labelPosition="before" formControlName="crq" [(ngModel)]="crq" color="primary"> Possui CRQ?</mat-checkbox>
+            </section>
+            <mat-form-field *ngIf="crq"
+                class="full-width"
+                appearance="outline"
+            >
+            <mat-label>Inicio em</mat-label>
+                <input matInput formControlName="crqDataAbertura" [matDatepicker]="crqDataInicial">
+                <mat-datepicker-toggle matSuffix [for]="crqDataInicial"></mat-datepicker-toggle>
+                <mat-datepicker #crqDataInicial></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field *ngIf="crq"
+                class="full-width"
+                appearance="outline"
+            >
+            <mat-label>Vence em</mat-label>
+                <input matInput formControlName="crqVencimento" [matDatepicker]="crqVencimento">
+                <mat-datepicker-toggle matSuffix [for]="crqVencimento"></mat-datepicker-toggle>
+                <mat-datepicker #crqVencimento></mat-datepicker>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <section class="check-section">
+                <mat-checkbox labelPosition="before" formControlName="alvara" [(ngModel)]="alvara" color="primary"> Possui Alvará de Funcionamento?</mat-checkbox>
+            </section>
+            <mat-form-field *ngIf="alvara"
+                class="full-width"
+                appearance="outline"
+            >
+            <mat-label>Inicio em</mat-label>
+                <input matInput formControlName="alvaraDataAbertura" [matDatepicker]="alvaraDataInicial">
+                <mat-datepicker-toggle matSuffix [for]="alvaraDataInicial"></mat-datepicker-toggle>
+                <mat-datepicker #alvaraDataInicial></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field *ngIf="alvara"
+                class="full-width"
+                appearance="outline"
+            >
+            <mat-label>Vence em</mat-label>
+                <input matInput formControlName="alvaraVencimento" [matDatepicker]="alvaraVencimento">
+                <mat-datepicker-toggle matSuffix [for]="alvaraVencimento"></mat-datepicker-toggle>
+                <mat-datepicker #alvaraVencimento></mat-datepicker>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <section class="check-section">
+                <mat-checkbox labelPosition="before" formControlName="licencaSanitaria" [(ngModel)]="licencaSanitaria" color="primary"> Possui Licença Sanitaria?</mat-checkbox>
+            </section>
+            <mat-form-field *ngIf="licencaSanitaria"
+                class="full-width"
+                appearance="outline"
+            >
+            <mat-label>Inicio em</mat-label>
+                <input matInput formControlName="licencaSanitariaDataAbertura" [matDatepicker]="licencaSanitariaDataInicial">
+                <mat-datepicker-toggle matSuffix [for]="licencaSanitariaDataInicial"></mat-datepicker-toggle>
+                <mat-datepicker #licencaSanitariaDataInicial></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field *ngIf="licencaSanitaria"
+                class="full-width"
+                appearance="outline"
+            >
+            <mat-label>Vence em</mat-label>
+                <input matInput formControlName="licencaSanitariaVencimento" [matDatepicker]="licencaSanitariaVencimento">
+                <mat-datepicker-toggle matSuffix [for]="licencaSanitariaVencimento"></mat-datepicker-toggle>
+                <mat-datepicker #licencaSanitariaVencimento></mat-datepicker>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <section class="check-section">
+                <mat-checkbox labelPosition="before" formControlName="mapa" [(ngModel)]="mapa" color="primary"> Possui Registro no Mapa?</mat-checkbox>
+            </section>
+            <mat-form-field *ngIf="mapa"
+                class="full-width"
+                appearance="outline"
+            >
+            <mat-label>Inicio em</mat-label>
+                <input matInput formControlName="mapaDataAbertura" [matDatepicker]="mapaDataInicial">
+                <mat-datepicker-toggle matSuffix [for]="mapaDataInicial"></mat-datepicker-toggle>
+                <mat-datepicker #mapaDataInicial></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field *ngIf="mapa"
+                class="full-width"
+                appearance="outline"
+            >
+            <mat-label>Vence em</mat-label>
+                <input matInput formControlName="mapaVencimento" [matDatepicker]="mapaVencimento">
+                <mat-datepicker-toggle matSuffix [for]="mapaVencimento"></mat-datepicker-toggle>
+                <mat-datepicker #mapaVencimento></mat-datepicker>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <section class="check-section">
+                <mat-checkbox labelPosition="before" formControlName="bombeiros" [(ngModel)]="bombeiros" color="primary"> Possui Certificado dos bombeiros?</mat-checkbox>
+            </section>
+            <mat-form-field *ngIf="bombeiros"
+                class="full-width"
+                appearance="outline"
+            >
+            <mat-label>Inicio em</mat-label>
+                <input matInput formControlName="bombeirosDataAbertura" [matDatepicker]="bombeirosDataInicial">
+                <mat-datepicker-toggle matSuffix [for]="bombeirosDataInicial"></mat-datepicker-toggle>
+                <mat-datepicker #bombeirosDataInicial></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field *ngIf="bombeiros"
+                class="full-width"
+                appearance="outline"
+            >
+            <mat-label>Vence em</mat-label>
+                <input matInput formControlName="bombeirosVencimento" [matDatepicker]="bombeirosVencimento">
+                <mat-datepicker-toggle matSuffix [for]="bombeirosVencimento"></mat-datepicker-toggle>
+                <mat-datepicker #bombeirosVencimento></mat-datepicker>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+
+        <section class="check-section">
+            <mat-checkbox labelPosition="before" formControlName="pgrs" [(ngModel)]="pgrs" color="primary"> Possui PGRS?</mat-checkbox>
+        </section>
+        <mat-form-field *ngIf="pgrs"
+            class="full-width"
+            appearance="outline"
+        >
+        <mat-label>Inicio em</mat-label>
+            <input matInput formControlName="pgrsDataAbertura" [matDatepicker]="pgrsDataInicial">
+            <mat-datepicker-toggle matSuffix [for]="pgrsDataInicial"></mat-datepicker-toggle>
+            <mat-datepicker #pgrsDataInicial></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field *ngIf="pgrs"
+            class="full-width"
+            appearance="outline"
+        >
+        <mat-label>Vence em</mat-label>
+            <input matInput formControlName="pgrsVencimento" [matDatepicker]="pgrsVencimento">
+            <mat-datepicker-toggle matSuffix [for]="pgrsVencimento"></mat-datepicker-toggle>
+            <mat-datepicker #pgrsVencimento></mat-datepicker>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <section class="check-section">
+            <mat-checkbox labelPosition="before" formControlName="bpfPop" [(ngModel)]="bpfPop" color="primary"> Possui manual de boas práticas(POP)?</mat-checkbox>
+        </section>
+        <mat-form-field *ngIf="bpfPop"
+            class="full-width"
+            appearance="outline"
+        >
+        <mat-label>Inicio em</mat-label>
+            <input matInput formControlName="bpfPopDataAbertura" [matDatepicker]="bpfPopDataInicial">
+            <mat-datepicker-toggle matSuffix [for]="bpfPopDataInicial"></mat-datepicker-toggle>
+            <mat-datepicker #bpfPopDataInicial></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field *ngIf="bpfPop"
+            class="full-width"
+            appearance="outline"
+        >
+        <mat-label>Vence em</mat-label>
+            <input matInput formControlName="pgrsVencimento" [matDatepicker]="pgrsVencimento">
+            <mat-datepicker-toggle matSuffix [for]="pgrsVencimento"></mat-datepicker-toggle>
+            <mat-datepicker #pgrsVencimento></mat-datepicker>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <section class="check-section">
+            <mat-checkbox labelPosition="before" formControlName="ambiental" [(ngModel)]="ambiental" color="primary"> Possui licença ambiental?</mat-checkbox>
+        </section>
+        <mat-form-field *ngIf="ambiental"
+            class="full-width"
+            appearance="outline"
+        >
+        <mat-label>Inicio em</mat-label>
+            <input matInput formControlName="ambientalDataAbertura" [matDatepicker]="ambientalDataInicial">
+            <mat-datepicker-toggle matSuffix [for]="ambientalDataInicial"></mat-datepicker-toggle>
+            <mat-datepicker #ambientalDataInicial></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field *ngIf="ambiental"
+            class="full-width"
+            appearance="outline"
+        >
+        <mat-label>Vence em</mat-label>
+            <input matInput formControlName="ambientalVencimento" [matDatepicker]="ambientalVencimento">
+            <mat-datepicker-toggle matSuffix [for]="ambientalVencimento"></mat-datepicker-toggle>
+            <mat-datepicker #ambientalVencimento></mat-datepicker>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <section class="check-section">
+            <mat-checkbox labelPosition="before" formControlName="sonora" [(ngModel)]="sonora" color="primary"> Possui licença sonora?</mat-checkbox>
+        </section>
+        <mat-form-field *ngIf="sonora"
+            class="full-width"
+            appearance="outline"
+        >
+        <mat-label>Inicio em</mat-label>
+            <input matInput formControlName="sonoraDataAbertura" [matDatepicker]="sonoraDataInicial">
+            <mat-datepicker-toggle matSuffix [for]="sonoraDataInicial"></mat-datepicker-toggle>
+            <mat-datepicker #sonoraDataInicial></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field *ngIf="sonora"
+            class="full-width"
+            appearance="outline"
+        >
+        <mat-label>Vence em</mat-label>
+            <input matInput formControlName="sonoraVencimento" [matDatepicker]="sonoraVencimento">
+            <mat-datepicker-toggle matSuffix [for]="sonoraVencimento"></mat-datepicker-toggle>
+            <mat-datepicker #sonoraVencimento></mat-datepicker>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <section class="check-section">
+            <mat-checkbox labelPosition="before" formControlName="publicidadePropaganda" [(ngModel)]="publicidadePropaganda" color="primary"> Possui licença de publicidade e propaganda?</mat-checkbox>
+        </section>
+        <mat-form-field *ngIf="publicidadePropaganda"
+            class="full-width"
+            appearance="outline"
+        >
+        <mat-label>Inicio em</mat-label>
+            <input matInput formControlName="publicidadePropagandaDataAbertura" [matDatepicker]="publicidadePropagandaDataInicial">
+            <mat-datepicker-toggle matSuffix [for]="publicidadePropagandaDataInicial"></mat-datepicker-toggle>
+            <mat-datepicker #publicidadePropagandaDataInicial></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field *ngIf="publicidadePropaganda"
+            class="full-width"
+            appearance="outline"
+        >
+        <mat-label>Vence em</mat-label>
+            <input matInput formControlName="publicidadePropagandaVencimento" [matDatepicker]="publicidadePropagandaVencimento">
+            <mat-datepicker-toggle matSuffix [for]="publicidadePropagandaVencimento"></mat-datepicker-toggle>
+            <mat-datepicker #publicidadePropagandaVencimento></mat-datepicker>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <section class="check-section">
+            <mat-checkbox labelPosition="before" formControlName="memorialDescritivo" [(ngModel)]="memorialDescritivo" color="primary"> Possui memorial descritivo?</mat-checkbox>
+        </section>
+        <mat-form-field *ngIf="memorialDescritivo"
+            class="full-width"
+            appearance="outline"
+        >
+        <mat-label>Descrição</mat-label>
+            <textarea [mat-autosize]="true" matInput formControlName="memorialDescritivoDescricao"></textarea>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" expand="block">Salvar</button>
+    </form>
+
+</ion-content>
