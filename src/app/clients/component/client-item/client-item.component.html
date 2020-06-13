@@ -19,7 +19,7 @@
         </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>Documentos</button>
+      <button mat-button (click)="onDocs.emit(client)">Documentos</button>
       <button mat-button>Galeria</button>
     </mat-card-actions>
   </mat-card>

@@ -35,6 +35,10 @@ export class ClientsListPage {
     this.navCtrl.navigateForward(`/clients-list/edit/${client.id}`);
   }
 
+  onDocs(client: Client): void {
+    this.navCtrl.navigateForward(`/clients-list/docs/${client.id}`);
+  }
+
   async onDelete(client: Client): Promise<void> {
     await this.overlayService.alert({
       message: `Deseja deletar a tarefa "${client.socialName}"?`,

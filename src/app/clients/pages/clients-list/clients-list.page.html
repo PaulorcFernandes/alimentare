@@ -20,6 +20,7 @@
                 [client]="client"
                 (update)="onUpdate($event)"
                 (delete)="onDelete($event)"
+                (onDocs)="onDocs($event)"
             ></app-client-item>
         </ng-container>
         <ng-template #noclients>
